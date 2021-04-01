@@ -337,7 +337,10 @@ _start0800:
     addi a0, a0, 4
     bltu a0, a1, 1b
 2:
-
+    lui	a5,0x40005 //put 0x40005000 int a5
+    li	a4,0x66 // 加载立即数到a4, 98, b ascii 66
+    sw	a4,4(a5) //4 表示偏移4字节的长度
+    /*call call_hello*/
     /*
      * Call vendor defined SystemInit to
      * initialize the micro-controller system

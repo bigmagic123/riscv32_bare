@@ -62,18 +62,25 @@ void _postmain_fini()
 
 int puts(const char *s)
 {
-    int ii = 0;
-    for(ii = 0; s[ii] != 0; ii ++)
-    {
-        USART_DATA(0x40005000) = s[ii] & USART_DATA_DATA;
-    }
-    USART_DATA(0x40005000) = s[ii] & USART_DATA_DATA;
+    // int ii = 0;
+    // for(ii = 0; s[ii] != 0; ii ++)
+    // {
+    //     USART_DATA(0x40005000) = s[ii] & USART_DATA_DATA;
+    // }
+    // USART_DATA(0x40005000) = s[ii] & USART_DATA_DATA;
+
+    USART_DATA(0x40005000) = 'c';
     return 0;
+}
+
+void call_hello()
+{
+    printf("hello qemu!\n");
 }
 
 void main()
 {
-    printf("hello qemu!\n");
+    
 //   SBI_PUTCHAR('H');
 //    SBI_PUTCHAR('e');
 //    SBI_PUTCHAR('l');
