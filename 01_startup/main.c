@@ -62,11 +62,12 @@ void _postmain_fini()
 
 int puts(const char *s)
 {
-    for(int ii = 0; ii < 8; ii ++)
+    int ii = 0;
+    for(ii = 0; s[ii] != 0; ii ++)
     {
         USART_DATA(0x40005000) = s[ii] & USART_DATA_DATA;
     }
-    
+    USART_DATA(0x40005000) = s[ii] & USART_DATA_DATA;
     return 0;
 }
 
